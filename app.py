@@ -1,5 +1,6 @@
 import os
 import logging
+from logging.handlers import StreamHandler
 from flask import Flask, request, jsonify
 
 
@@ -27,5 +28,8 @@ def after_request(response):
 
 
 if __name__ == '__main__':
+    handler = StreamHandler()
     logger = logging.getLogger(__name__)
+    logger.setLevel(logging.ERROR)
+    logger.addHandler(handler)
     app.run()
