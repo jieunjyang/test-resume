@@ -1,6 +1,5 @@
 import os
 import logging
-from logging.handlers import StreamHandler
 from flask import Flask, request, jsonify
 
 
@@ -19,7 +18,7 @@ def hello():
 def after_request(response):
     try:
         if response.status_code != 500:
-            logger.error('%s %s %s %s %s', request.remote_addr, request.method,
+            app.logger.error('%s %s %s %s %s', request.remote_addr, request.method,
             request.scheme, request.full_path, request.status)
 
             return response
@@ -28,8 +27,4 @@ def after_request(response):
 
 
 if __name__ == '__main__':
-    handler = StreamHandler()
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.ERROR)
-    logger.addHandler(handler)
     app.run()
