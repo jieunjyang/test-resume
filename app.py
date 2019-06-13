@@ -22,7 +22,7 @@ def after_request(response):
             request.scheme, request.full_path, request.status)
 
             return response
-    except Exception e:
+    except Exception as e:
         return e
 
 
