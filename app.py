@@ -19,7 +19,7 @@ def after_request(response):
     if response.status_code != 500:
         logger.error('%s %s %s %s %s', request.remote_addr, request.method,
         request.scheme, request.full_path, request.status)
-    return response
+    return "OK"
 
 
 if __name__ == '__main__':
