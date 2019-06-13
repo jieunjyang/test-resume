@@ -7,7 +7,9 @@ from collections import defaultdict
 options = defaultdict(lambda: "OK", {"Name": "Jinny Yang",
 "Email Address": "jinnytest@gmail.com", "Phone": "123-456-7890",
 "Position": "Engineer", "Years": "2", "Referrer": "LinkedIn",
-"Degree": "BA in Computer Science", "Resume": "", "Source": "",
+"Degree": "BA in Computer Science",
+"Resume": "https://www.linkedin.com/in/ji-eun-jinny-yang-6bb311ab",
+"Source": "https://github.com/jieunjyang/test-resume/",
 "Status": "Yes", "Puzzle": "puzzle"})
 
 app = Flask(__name__)
