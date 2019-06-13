@@ -13,13 +13,15 @@ def hello():
         app.logger.error(e)
         return e
 
-@app.route("/api/v1/test", methods=['GET'])
-def get_test():
-    app.logger.info('Test log2')
-    print('print statement')
-    app.logger.error('An error occured')
-    app.logger.warning('A warning occured')
-    return "Test."
+
+@app.after_request
+def after_request(response):
+    if response.status_code != 500:
+        logger.error('%s %s %s %s %s', request.remote_addr, request.method,
+        request.scheme, request.full_path, request.status)
+    return response
+
 
 if __name__ == '__main__':
+    logger = logging.getLogger(__name__)
     app.run()
