@@ -10,7 +10,7 @@ options = defaultdict(lambda: "OK", {"Name": "Jinny Yang",
 "Degree": "BA in Computer Science",
 "Resume": "https://www.linkedin.com/in/ji-eun-jinny-yang-6bb311ab",
 "Source": "https://github.com/jieunjyang/test-resume/",
-"Status": "Yes", "Puzzle": "ABCD\nA=>>>\nB<=<>\nC<>=>\nD<<<="})
+"Status": "Yes", "Puzzle": " ABCD\nA=>>>\nB<=<>\nC<>=>\nD<<<="})
 
 app = Flask(__name__)
 
