@@ -13,7 +13,7 @@ def hello():
 @app.after_request
 def after_request(response):
     if response.status_code != 500:
-        app.logger.error('%s %s %s %s %s', request.remote_addr, request.method,
+        app.logger.error('REQUEST LOG: %s %s %s %s %s', request.remote_addr, request.method,
         request.scheme, request.full_path, response.status)
 
     return response
