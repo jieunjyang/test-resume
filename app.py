@@ -2,26 +2,41 @@ import os
 import logging
 from flask import Flask, request, jsonify
 import traceback
+import config
+from collections import defaultdict
+
+options = defaultdict(lambda: "OK", {"Name": "Jinny Yang",
+"Email Address": "jinnytest@gmail.com", "Phone": "123-456-7890",
+"Position": "Engineer", "Years": "2", "Referrer": "LinkedIn",
+"Degree": "BA in Computer Science", "Resume": "", "Source": "",
+"Status": "Yes", "Puzzle": "puzzle"})
 
 app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
-def hello():
-    return "OK"
+def index():
+    q = request.args.get('q')
+    d = request.args.get('d')
+    app.logger.warning(f'q is {q} and d is {d}')
+    return options[q]
 
 
 @app.after_request
 def after_request(response):
     if response.status_code != 500:
-        app.logger.error('REQUEST URL: %s', request.url)
+        request_url = request.url
+        app.logger.error(f'REQUEST URL: {request_url}')
     return response
 
 
 @app.errorhandler(Exception)
 def exceptions(e):
     tb = traceback.format_exc()
-    app.logger.error('%s %s %s %s 5xx INTERNAL SERVER ERROR\n%s',
-    request.remote_addr, request.method, request.scheme, request.full_path, tb)
+    addr = request.remote_addr
+    method = request.method
+    scheme = request.scheme
+    full_path = request.full_path
+    app.logger.error(f'{addr} {method} {scheme} {full_path} 5xx INTERNAL SERVER ERROR\n{tb}')
     return 'bad request!'
 
 if __name__ == '__main__':
