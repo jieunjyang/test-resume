@@ -1,0 +1,23 @@
+Examples:
+
+Given: ... Answer:
+
+
+1. ABCD
+  A=___ ... A=<><
+  B>___ ... B>=><
+  C<___ ... C<<=<
+  D_>__ ... D>>>=
+
+2. ABCD
+  A__<_ ... A=<<<
+  B___> ... B>=>>
+  C__=_ ... C><=<
+  D__>_ ... D><>=
+
+Explanation: 
+Each letter is given 4 symbols, where each symbol's index maps to a letter. For example, if D was given the following, _>__, the symbols will represent D's relationship to the letter at the given index. So in this case, D > B. Another example, if A is given the following, __<_, then the symbol < describes A's relationship to the letter that maps to the symbol's index (ie. A < C). 
+
+In the first example, the relationship between the letters is as follows: A = A, B > A, C < A, D > B. That gives us the following order (from greatest to least): DBAC. The response for each letter explains the letter's relationship to the other letters. So given A's response, the symbols correspond to the letter at the symbol's index: A = A, A < B, A > c, A < D. B's response is the same: B > A, B = B, B > C, B < D (and so on with C and D).
+
+In the second example, the relationship between the letters is as follows: A < C, B > D, C = C, D > C. That gives us the following order (from greatest to least): BDCA. The response for each letter explains the letter's relationship to the other letters. So given A's response, the symbols correspond to the letter at the symbol's index: A = A, A < B, A < C, A < D. B's response is the same: B > A, B = B, B > C, B > D (and so on with C and D).
