@@ -2,7 +2,6 @@ import os
 import logging
 from flask import Flask, request, jsonify
 import traceback
-import config
 from collections import defaultdict
 
 options = defaultdict(lambda: "OK", {"Name": "Jinny Yang",
