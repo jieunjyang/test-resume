@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     try:
-        return "Hello World."
+        return "OK"
     except Exception as e:
         app.logger.error(e)
         return e
